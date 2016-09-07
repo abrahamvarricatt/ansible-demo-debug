@@ -1,0 +1,5 @@
+---
+
+# ping test to check if inventory is configured correctly
+- ping:
+

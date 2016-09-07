@@ -1,0 +1,10 @@
+[webservers]
+192.168.77.10
+
+[webservers:vars]
+ansible_connection=ssh
+ansible_port=22
+ansible_user=vagrant
+ansible_ssh_pass=vagrant
+deployment_type=vagrant
+
