@@ -4,3 +4,4 @@
 
   roles:
     - ping-test
+    - { role: base, become: yes, become_method: sudo}
