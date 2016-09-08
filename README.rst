@@ -24,9 +24,9 @@ After bringing up the system, navigate to the 'provision' folder and run the fol
 
 The system should come up now. You should be able to visit,
 
-http://192.168.77.10/            (will see an error page)
-http://192.168.77.10/admin/      (a login page)
-http://192.168.77.10/polls/      (a list with links)
+- http://192.168.77.10/            (will see an error page)
+- http://192.168.77.10/admin/      (a login page)
+- http://192.168.77.10/polls/      (a list with links)
 
 
 To turn off the virtual environment you can run,
