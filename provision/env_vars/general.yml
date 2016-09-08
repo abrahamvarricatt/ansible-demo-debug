@@ -1,0 +1,12 @@
+---
+
+polls_source_repo: https://github.com/abrahamvarricatt/django-polls.git
+sources_root: /srv/sources
+local_repo_path: "{{ sources_root }}/my-polls"
+virtualenv_root: /srv/VENVs
+
+# Python3 sources and md5 checksum
+python3_version: 3.5.2
+python3_source_url: https://www.python.org/ftp/python/{{ python3_version }}/Python-{{ python3_version }}.tgz
+python3_md5_checksum: 3fe8434643a78630c61c6464fe2e7e72
+

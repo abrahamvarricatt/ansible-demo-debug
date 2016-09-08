@@ -18,6 +18,16 @@
     # Python dependencies on host
     - python-pip
     - python-virtualenv
+    # To build Python3 from source
+    - gcc
+    - make
+    - sqlite-devel
+    - expat-devel
+    - zlib-devel
+    - bzip2-devel
+    - libxml2-devel
+    - libxslt-devel
+    - openssl-devel
     # Source control
     - git
     # Web server
@@ -34,5 +44,11 @@
     name: firewalld
     state: stopped
     enabled: no
+
+- name: Directory to store OSS source-code
+  file:
+    path: /opt/src
+    state: directory
+    mode: 0755
 
 

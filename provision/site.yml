@@ -2,6 +2,14 @@
 
 - hosts: all
 
+  vars_files:
+    - env_vars/general.yml
+
   roles:
     - ping-test
     - { role: base, become: yes, become_method: sudo}
+    - { role: build-python35, become: yes, become_method: sudo}
+    - polls-app
+    - polls-VENV
+
+

@@ -1,0 +1,30 @@
+---
+
+- name: Create source-code directory on /vagrant
+  file:
+    dest: "/vagrant{{ sources_root }}"
+    state: directory
+  when: deployment_type == 'vagrant'
+
+- name: Symlink source-code directory on guest system
+  become: yes
+  become_method: sudo
+  file:
+    src: "/vagrant{{ sources_root }}"
+    dest: "{{ sources_root }}"
+    state: link
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: 0775
+  when: deployment_type == 'vagrant'
+
+- name: Clone repo from github
+  git:
+    repo: "{{ polls_source_repo }}"
+    dest: "{{ local_repo_path }}"
+    force: yes
+    update: yes
+    recursive: no
+
+
+

@@ -1,0 +1,40 @@
+---
+
+- name: Check if sources have been downloaded
+  stat: path=/opt/src/Python-{{ python3_version }}.tgz
+  register: python3_source
+
+- name: Download Python source-code
+  get_url:
+    url: "{{ python3_source_url }}"
+    dest: /opt/src/Python-{{ python3_version }}.tgz
+  when: not python3_source.stat.exists
+
+- name: Calculate md5sum of Python sources
+  stat:
+    path: /opt/src/Python-{{ python3_version }}.tgz
+    get_md5: yes
+  register: python3_downloaded_source_checksum
+
+- name: Throw error if checksum mis-match
+  fail: msg="MD5 checksum mis-match!!!"
+  when: "'{{ python3_downloaded_source_checksum.stat.md5 }}' != '{{ python3_md5_checksum }}'"
+
+- name: Extract Python source-code
+  unarchive:
+    src: /opt/src/Python-{{ python3_version }}.tgz
+    dest: /opt/src/
+    copy: no
+  when: not python3_source.stat.exists
+
+- name: Copy build script to target
+  copy:
+    src: build-python.sh
+    dest: /opt/src/Python-{{ python3_version }}/build-python.sh
+    mode: ug+rwx
+  when: not python3_source.stat.exists
+
+- name: Run build script
+  shell: cd /opt/src/Python-{{ python3_version }} && ./build-python.sh
+  when: not python3_source.stat.exists
+
