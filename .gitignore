@@ -1,3 +1,4 @@
 .idea/
 .vagrant/
 provision/ansible.log
+/srv
