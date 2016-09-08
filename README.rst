@@ -1,9 +1,9 @@
 Tools required
 ==============
 
-vagrant >= 1.8.1    ( https://www.vagrantup.com/downloads.html )
-ansible >= 2.1.1.0  ( http://docs.ansible.com/ansible/intro_installation.html )
-virtualbox >= 5.0   ( https://www.virtualbox.org/wiki/Downloads )
+- vagrant >= 1.8.1    ( https://www.vagrantup.com/downloads.html )
+- ansible >= 2.1.1.0  ( http://docs.ansible.com/ansible/intro_installation.html )
+- virtualbox >= 5.0   ( https://www.virtualbox.org/wiki/Downloads )
 
 Basic instructions
 ==================
