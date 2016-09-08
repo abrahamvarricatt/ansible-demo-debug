@@ -1,0 +1,23 @@
+---
+
+- name: Copy over welcome.conf (commented version)
+  copy:
+    src: welcome.conf
+    dest: /etc/httpd/conf.d/welcome.conf
+
+- name: Copy over django-polls.conf
+  copy:
+    src: django-polls.conf
+    dest: /etc/httpd/conf.d/django-polls.conf
+
+- name: Make sqlite DB all-access
+  file:
+    path: /srv/sources/my-polls/db.sqlite3
+    mode: 0777
+
+- name: start httpd service
+  service:
+    name: httpd
+    state: started
+    enabled: yes
+
