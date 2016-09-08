@@ -18,16 +18,16 @@
     # Python dependencies on host
     - python-pip
     - python-virtualenv
-    # To build Python3 from source
-    - gcc
-    - make
-    - sqlite-devel
-    - expat-devel
-    - zlib-devel
-    - bzip2-devel
-    - libxml2-devel
-    - libxslt-devel
-    - openssl-devel
+#    # To build Python3 from source
+#    - gcc
+#    - make
+#    - sqlite-devel
+#    - expat-devel
+#    - zlib-devel
+#    - bzip2-devel
+#    - libxml2-devel
+#    - libxslt-devel
+#    - openssl-devel
     # Source control
     - git
     # Web server

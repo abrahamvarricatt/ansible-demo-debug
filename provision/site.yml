@@ -8,8 +8,9 @@
   roles:
     - ping-test
     - { role: base, become: yes, become_method: sudo}
-    - { role: build-python35, become: yes, become_method: sudo}
+#    - { role: build-python35, become: yes, become_method: sudo}
     - polls-app
     - polls-VENV
-
+    - polls-staticfiles
+    - { role: httpd-conf, become: yes, become_method: sudo}
 

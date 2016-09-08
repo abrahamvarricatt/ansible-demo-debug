@@ -10,11 +10,11 @@
     group: "{{ ansible_user }}"
     mode: 0775
 
-- name: Manually create the initial virtualenv
-  command: /opt/python3-altinstall/bin/python3.5 -m venv django-polls
-  args:
-    chdir: "{{ virtualenv_root }}"
-    creates: "{{ virtualenv_root }}/django-polls"
+#- name: Manually create the initial virtualenv
+#  command: /opt/python3-altinstall/bin/python3.5 -m venv django-polls
+#  args:
+#    chdir: "{{ virtualenv_root }}"
+#    creates: "{{ virtualenv_root }}/django-polls"
 
 - name: Install requirements.txt
   pip:
