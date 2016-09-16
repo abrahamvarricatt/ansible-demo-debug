@@ -7,4 +7,4 @@ ansible_port=22
 ansible_user=vagrant
 ansible_ssh_pass=vagrant
 deployment_type=vagrant
-
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
