@@ -61,7 +61,7 @@ running the following commands,
 .. code:: bash
 
     $ cd ~
-    $ git clone https://github.com/abrahamvarricatt/bangpy-ansible-workshop.git
+    $ git clone -b bangpy-ansible-workshop https://github.com/abrahamvarricatt/ansible-demo-debug.git bangpy-ansible-workshop
     $ cd bangpy-ansible-workshop
 
 If you are working with a different folder structure, please change the instructions accordingly.
