@@ -1,0 +1,40 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+
+  vars:
+    custom_ntpserver: 1.centos.pool.ntp.org
+
+  tasks:
+
+  - ping:
+
+  - name: Install NTP
+    yum:
+      name: ntp
+      state: installed    # NOTE: not same as saying 'present'
+      update_cache: yes
+
+  - name: Copy NTP templated config
+    template:
+      src: ntp.conf.j2
+      dest: /etc/ntp.conf
+      mode: 644
+      owner: root
+      group: root
+    notify: Restart NTP
+
+  - name: Start NTPD
+    service:
+      name: ntpd
+      state: started
+
+  handlers:
+
+  - name: Restart NTP
+    service:
+      name: ntpd
+      state: restarted
+
+

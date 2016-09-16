@@ -1,0 +1,63 @@
+# {{ ansible_managed }}
+
+user nginx;
+worker_processes 1;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+include /usr/share/nginx/modules/*.conf;
+
+events {
+    worker_connections 512;
+}
+
+http {
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for"';
+
+    access_log  /var/log/nginx/access.log  main;
+
+    sendfile            off;
+    tcp_nopush          on;
+    tcp_nodelay         on;
+    types_hash_max_size 2048;
+
+    include             /etc/nginx/mime.types;
+    default_type        application/octet-stream;
+
+    include /etc/nginx/conf.d/*.conf;
+
+    # https://philio.me/backend-server-host-name-as-a-custom-header-with-nginx/
+    add_header X-Backend-Server $hostname;
+
+    # disable cache used for testing
+    add_header Cache-Control private;
+    add_header Last-Modified "";
+    expires off;
+    etag off;
+
+    server {
+        listen       80 default_server;
+        listen       [::]:80 default_server;
+        server_name  {{ ansible_hostname }};
+        root         /usr/share/nginx/html;
+        index        index.html index.htm;
+
+        # include /etc/nginx/default.d/*.conf;
+
+        location / {
+            try_files $uri $uri/ =404;
+        }
+
+        error_page 404 /404.html;
+            location = /40x.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+            location = /50x.html {
+        }
+    }
+
+}
+

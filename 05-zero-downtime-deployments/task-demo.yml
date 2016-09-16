@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+
+  tasks:
+
+  - name: Sleep for a bit
+    shell: /bin/sleep 5
+

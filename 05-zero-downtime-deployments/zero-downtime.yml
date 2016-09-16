@@ -1,0 +1,87 @@
+---
+
+- hosts: webappservers
+  become: yes
+  become_method: sudo
+  serial: 1
+
+  pre_tasks:
+
+  - name: Disable server in haproxy
+    shell: echo "disable server loadbalancer/{{ inventory_hostname }}" | socat stdio /var/lib/haproxy/stats
+    delegate_to: "{{ item }}"
+    with_items:
+      - "{{ groups.loadbalancers }}"
+
+  tasks:
+
+  - name: Install EPEL repository
+    yum:
+      name: epel-release
+      state: installed
+
+  - name: Install nginx
+    yum:
+      name: nginx
+      state: installed
+
+  - name: Copy over nginx.conf
+    template:
+      src: nginx.conf.j2
+      dest: /etc/nginx/nginx.conf
+    notify: Restart nginx
+
+  - name: Pretend upgrade by cleaning out content
+    file:
+      path: /usr/share/nginx/html/index.html
+      state: absent
+
+  - name: Copy over webapp content
+    template:
+      src: index.html.j2
+      dest: /usr/share/nginx/html/index.html
+    notify: Restart nginx
+
+  handlers:
+
+  - name: Restart nginx
+    service:
+      name: nginx
+      state: restarted
+
+  post_tasks:
+
+  - name: Re-enable server in haproxy
+    shell: echo "enable server loadbalancer/{{ inventory_hostname }}" | socat stdio /var/lib/haproxy/stats
+    delegate_to: "{{ item }}"
+    with_items:
+      - "{{ groups.loadbalancers }}"
+
+#############################################################
+#############################################################
+
+- hosts: loadbalancers
+  become: yes
+  become_method: sudo
+
+  tasks:
+
+  - name: Install haproxy and socat
+    yum: name="{{ item }}" state=installed
+    with_items:
+      - haproxy
+      - socat
+
+  - name: Copy over haproxy.cfg
+    template:
+      src: haproxy.cfg.j2
+      dest: /etc/haproxy/haproxy.cfg
+    notify: Restart haproxy
+
+  handlers:
+
+  - name: Restart haproxy
+    service:
+      name: haproxy
+      state: restarted
+
