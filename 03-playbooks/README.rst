@@ -196,7 +196,9 @@ is used by the new ``template`` module which replaces the older ``copy`` module.
 
 The output looks very satisfying, doesn't it? :)
 
-NOTE: custom variables (and a few pre-defined ansible ones) can be declared at many locations - not just in the YAML
+NOTE: 
+
+      custom variables (and a few pre-defined ansible ones) can be declared at many locations - not just in the YAML
       playbook. And templates are not the only module which uses them - they can be accessed and used by other modules
       as well. Please refer the official ansible documentation for more details.
 
