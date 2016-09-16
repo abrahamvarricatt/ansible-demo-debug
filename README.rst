@@ -2,22 +2,22 @@
 BangPy Ansible Workshop
 #######################
 
-+--------------+------------------------------------------------+
-|  Date        |  17/September/2016                             |
-+--------------+------------------------------------------------+
-|  Time        |  10 AM - 2 PM                                  |
-+--------------+------------------------------------------------+
-|  Venue       |  Red Hat India Pvt Ltd.                        |
-|              |  IBC Knowledge Park, 11th Floor                |
-|              |  Tower D, Bangalore - 560 029                  |
-+--------------+------------------------------------------------+
-|  Instructor  |  Abraham Varricatt                             |
-+--------------+------------------------------------------------+
-|  Contact     |  https://twitter.com/chronodekar               |
-|              |  https://www.linkedin.com/in/abrahamvarricatt  |
-|              |  NOTE: Please mention this workshop to avoid   |
-|              |        being mistaken for spam                 |
-+--------------+------------------------------------------------+
++--------------+--------------------------------------------------+
+|  Date        |  17/September/2016                               |
++--------------+--------------------------------------------------+
+|  Time        |  10 AM - 2 PM                                    |
++--------------+--------------------------------------------------+
+|  Venue       |  | Red Hat India Pvt Ltd.                        |
+|              |  | IBC Knowledge Park, 11th Floor                |
+|              |  | Tower D, Bangalore - 560 029                  |
++--------------+--------------------------------------------------+
+|  Instructor  |  Abraham Varricatt                               |
++--------------+--------------------------------------------------+
+|  Contact     |  https://twitter.com/chronodekar                 |
+|              |  https://www.linkedin.com/in/abrahamvarricatt    |
+|              |  NOTE: Please mention this workshop to avoid     |
+|              |        being mistaken for spam                   |
++--------------+--------------------------------------------------+
 
 This repository was created to assist in conducting a workshop for the Bangalore Python User Group about Ansible. It is
 distributed under the MIT License as mentioned at the end of this file.
