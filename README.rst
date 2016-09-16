@@ -59,7 +59,7 @@ Workshop Notes
 
 During the workshop, I expect the need to send code snippets to participants. For this purpose, I've created the following gitter chatroom,
 
-https://gitter.im/bangpy-ansible-workshop/Lobby#
+`Gitter chatroom for bangpy-ansible-workshop <https://gitter.im/bangpy-ansible-workshop/Lobby#>`_
 
 Gitter was chosen because they allow anyone to view the chatroom without needing to register. An added (and personal) benefit is that gitter supports IRC connections for registered users (like myself) which means I can use my usual IRC client to talk to everyone, instead of another app. 
 
