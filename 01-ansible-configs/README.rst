@@ -15,7 +15,11 @@ What is Ansible?
 Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks
 such as continuous deployments or zero downtime rolling updates. It manages machines in an agent-less manner.
 
-TODO: insert comment of what happens in this workshop
+After the quick introduction to Vagrant, we'll being our ansible learning with an explanation of different
+configuration files. Then, its onto running a few ad-hoc commands. With our feet wet, the swimming lesson with
+ansible playbooks comes next. After this, we'll use our knowledge to provision a cluster of webapps behind a load
+balancer. The final segment will be a quick-and-dirty playbook of how to do a zero downtime upgrade using pre and
+post tasks.
 
 
 Configuring Ansible
