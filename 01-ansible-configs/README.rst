@@ -60,7 +60,7 @@ Please create a folder called ``inventory``, add a file called ``vagrant.ini`` c
 
     $ mkdir inventory
     $ cat inventory/vagrant.ini
-    192.168.77.20       ansible_user=vagrant        ansible_ssh_pass=vagrant
+    192.168.77.20       ansible_user=vagrant        ansible_ssh_pass=vagrant        ansible_ssh_common_args='-o StrictHostKeyChecking=no'
     $
 
 Our inventory file mentions the IP of the host we want to manage and the credentials to use when logging into the host.

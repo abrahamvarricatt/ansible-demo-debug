@@ -85,12 +85,12 @@ But we've got a few changes to our inventory file. Here's how it looks like,
 
     $ cat inventory/vagrant.ini
     [loadbalancers]
-    192.168.77.20       ansible_user=vagrant        ansible_ssh_pass=vagrant
+    192.168.77.20       ansible_user=vagrant        ansible_ssh_pass=vagrant        ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
     [webappservers]
-    192.168.77.21       ansible_user=vagrant        ansible_ssh_pass=vagrant
-    192.168.77.22       ansible_user=vagrant        ansible_ssh_pass=vagrant
-    192.168.77.23       ansible_user=vagrant        ansible_ssh_pass=vagrant
+    192.168.77.21       ansible_user=vagrant        ansible_ssh_pass=vagrant        ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+    192.168.77.22       ansible_user=vagrant        ansible_ssh_pass=vagrant        ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+    192.168.77.23       ansible_user=vagrant        ansible_ssh_pass=vagrant        ansible_ssh_common_args='-o StrictHostKeyChecking=no'
     $
 
 We're dividing our servers into two groups: load-balancers and webapp-servers. HA-Proxy will be installed on the
