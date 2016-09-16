@@ -14,6 +14,17 @@ To bring up the system run,
 
     $ vagrant up
 
+Once the system is up, try to SSH into the box with,
+
+.. code:: shell
+
+    $ vagrant ssh
+    ...
+    $ exit
+
+You can quit out of the SSH session with `exit` command and return to host system.
+
+
 After bringing up the system, navigate to the 'provision' folder and run the following command,
 
 .. code:: shell
